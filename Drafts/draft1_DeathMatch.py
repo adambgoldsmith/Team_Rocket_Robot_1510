@@ -56,4 +56,4 @@ while True:
     else:
         ram(0, 20)
         # if the color sensor does not detect black or an object
-        # then do not want the robot to move backwards or forwards and instead turn
+        # then do not want the robot to move backwards or forwards and instead turn in place
