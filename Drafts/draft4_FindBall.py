@@ -9,10 +9,8 @@ motor_pair = MotorPair('A', 'B')
 motor_c = Motor('C')
 c_sensor = ColorSensor('E')
 d_sensor = DistanceSensor('D')
-motor_pair.set_default_speed(10)
 
 # Write your program here.
-hub.speaker.beep()
 
 def OrientateHub():
     # resets robot yaw to 0
@@ -24,7 +22,7 @@ def ScanForBall():
     while True:
         if distance is not None and distance <= 4:
             LiftArm()
-            break # why is this break statement unreachable? we must get to the end of the call stack.
+            break
         if c_sensor.get_color() == 'black':
             motor_pair.stop()
             if direction == True:
@@ -69,6 +67,8 @@ def GoHome():
             while True:
                 if c_sensor.get_color() == 'black':
                     Finish()
+                    break
+            break
 
 
 def Finish():
@@ -76,6 +76,8 @@ def Finish():
     hub.speaker.play_sound("Ha Ha Ha")
 
 def main():
+    hub.speaker.beep()
+    motor_pair.set_default_speed(10)
     OrientateHub()
     ScanForBall()
 
