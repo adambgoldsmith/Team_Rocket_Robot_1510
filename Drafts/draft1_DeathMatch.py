@@ -31,9 +31,9 @@ def ram(movement):
         if color_sensor.get_color() == 'black':
             motor_pair.start(-75, 5, 'seconds')
         elif distance == None:
-            motor_pair.start(50)
+            motor_pair.start(40)
         elif distance <= 5:
-            motor_pair.start(50)
+            motor_pair.start(75)
         else:
-            motor_pair.start_tank(40, -40)
+            motor_pair.start_tank(30, -30)
 
