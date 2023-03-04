@@ -23,21 +23,17 @@ black tape is used), then it reverses.
 Continues to do this forever.
 """
 
-def spin():
-    motor_pair.start_tank(-10, 10)
 
 def ram(movement):
     motor_pair.start_tank(+movement, -movement)
-
-while True:
-    distance = distance_sensor.get_distance_cm()
-    if color_sensor.get_color() == 'black':
-            motor_pair.start(-75)
-            wait_for_seconds(0.5)
-    elif distance == None:
-        motor_pair.start(50)
-    elif distance <= 50:
-        motor_pair.start(50)
-    else:
-        spin
+    while True:
+        distance = distance_sensor.get_distance_cm()
+        if color_sensor.get_color() == 'black':
+            motor_pair.start(-75, 5, 'seconds')
+        elif distance == None:
+            motor_pair.start(50)
+        elif distance <= 5:
+            motor_pair.start(50)
+        else:
+            motor_pair.start_tank(40, -40)
 
