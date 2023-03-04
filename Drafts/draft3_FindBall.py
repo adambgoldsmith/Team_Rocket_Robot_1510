@@ -51,14 +51,18 @@ def GoHome():
         motor_pair.start()
         if c_sensor.get_color() == 'black':
             motor_pair.stop()
-            while hub.motion_sensor.get_yaw_angle() != 180:
+            while hub.motion_sensor.get_yaw_angle() in range(-175, 175):
                 motor_pair.start_tank(-10, 10)
-                motor_pair.stop()
+            motor_pair.stop()
             while True:
                 motor_pair.start()
                 if c_sensor.get_color() == 'black':
-                    motor_pair.stop()
-                    hub.speaker.play_sound('Warp Speed')
+                    Finish()
+
+
+def Finish():
+    motor_pair.stop()
+    hub.speaker.play_sound("Ha Ha Ha")
 
 def main():
     OrientateHub()
