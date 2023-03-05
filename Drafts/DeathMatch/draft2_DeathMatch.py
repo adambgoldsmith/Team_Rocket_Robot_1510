@@ -12,7 +12,7 @@ hub.speaker.beep()
 motor_pair = MotorPair('A', 'B')
 color_sensor = ColorSensor('E')
 distance_sensor = DistanceSensor('D')
-hub = hub.motion_sensor
+hub_degrees = hub.motion_sensor
 
 motor_pair.set_default_speed(25)
 
@@ -27,11 +27,16 @@ Continues to do this forever.
 
 
 def sumo():
-
+    # hub_degrees.reset_yaw_angle()
     while True:
         distance = distance_sensor.get_distance_cm()
         if color_sensor.get_color() == 'black':
-            motor_pair.move_tank(10, 'cm', 50, 50)
+            # hub_degrees.get_yaw_angle()
+            # while hub_degrees.get_yaw_angle() != (abs(45)):
+            # motor_pair.start_tank(50, -50)
+            # motor_pair.move_tank(3, 'cm', -50, 50)
+            motor_pair.start(-50)
+            wait_for_seconds(2)
         elif distance == None:
             distance_sensor.light_up_all(50)
             motor_pair.start(30)
@@ -42,3 +47,6 @@ def sumo():
             motor_pair.start_tank(20, -20)
 
 sumo()
+
+def main():
+    print(sumo)
