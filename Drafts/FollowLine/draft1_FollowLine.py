@@ -30,8 +30,8 @@ while True:
    #color = c_sensor.wait_for_new_color()
 
 
-   # by convention, steer to the left
-   if color == 'black':
-       motor_pair.move(1, 'cm', -50, 100)
-   else:
-       motor_pair.move(1, 'cm', 50, 100)
+ # by convention, steer to the left
+    if color == 'green':
+        motor_pair.move(1, 'cm', 50, 100)
+    else:
+        motor_pair.move(1, 'cm', -50, 100)
