@@ -34,7 +34,7 @@ def Scan():
 
 def Rotate():
     hub.motion_sensor.reset_yaw_angle()
-    while hub.motion_sensor.get_yaw_angle() != 15:
+    while hub.motion_sensor.get_yaw_angle() < 15:
         motor_pair.start_tank(10, -10)
     motor_pair.stop()
     timer.reset()
