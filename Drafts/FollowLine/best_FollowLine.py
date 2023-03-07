@@ -17,7 +17,7 @@ c_sensor = ColorSensor('E')
 
 
 # set robot speed
-motor_pair.set_default_speed(10)
+motor_pair.set_default_speed(-200)
 
 
 # assume that the robot starts on the track
@@ -26,12 +26,12 @@ motor_pair.start()
 
 # do zig-zags with the robot until we reach end of the track
 while True:
-   color = c_sensor.get_color()
-   #color = c_sensor.wait_for_new_color()
+    color = c_sensor.get_color()
+#color = c_sensor.wait_for_new_color()
 
 
  # by convention, steer to the left
     if color == 'green':
-        motor_pair.move(1, 'cm', 50, 100)
+        motor_pair.start(75, -200)
     else:
-        motor_pair.move(1, 'cm', -50, 100)
+        motor_pair.start(-75, -200)
