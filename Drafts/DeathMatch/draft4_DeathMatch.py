@@ -46,7 +46,3 @@ def sumo():
             # if there are no objects in the distance, spin around
 
 sumo()
-
-
-def main():
-    print(sumo)
