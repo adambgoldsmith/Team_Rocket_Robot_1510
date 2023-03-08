@@ -30,7 +30,8 @@ def sumo():
         if color_sensor.get_color() == 'black':
             motor_pair.start(0, -50)
             wait_for_seconds(0.5)
-            # if robot detects border, then reverse for 0.5 seconds
+            motor_pair.stop()
+            # if robot detects border, then reverse for 0.5 seconds and stops
         elif distance == None:
             distance_sensor.light_up_all(50)
             motor_pair.start(0, 50)
@@ -39,9 +40,9 @@ def sumo():
         elif distance <= 15:
             distance_sensor.light_up_all(50)
             motor_pair.start(0, 50)
-            # if distance is 15 or under, then robot rams into other robot
+            # if distance is 15cm or under, then robot rams into other robot
         else:
-            motor_pair.start(30, -30)
+            motor_pair.start_tank(30, -30)
             # if there are no objects in the distance, spin around
 
 sumo()
