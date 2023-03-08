@@ -17,7 +17,7 @@ motor_pair.set_default_speed(25)
 Robot scans arena to see if there are any objects in the arena.
 
 If there are, then the robot runs towards it.  
-There isn't, then it spins around. 
+When there isn't, it spins around. 
 When it detects the border, it reverses. 
 """
 
