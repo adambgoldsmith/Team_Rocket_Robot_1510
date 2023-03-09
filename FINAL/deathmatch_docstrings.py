@@ -15,9 +15,10 @@ hub_degrees = hub.motion_sensor
 motor_pair.set_default_speed(100)
 timer = Timer()
 
+
 def sumo():
     """
-    Spins in place or if it sees an objects, runs into it
+    Spins in place or if it sees an object, runs into it
     while avoiding the border.
 
     To avoid the border, the robot detects if it sees black and if it does,
@@ -26,7 +27,7 @@ def sumo():
     :precondition: try to stay in green arena and run into objects
     :postcondition: spin around if no objects detected, else run into objects
     while reversing if it sees black
-    :return: robot that knocks other robots out of a ring while staying inside it
+    :return:
     """
 
     motor_pair.start_tank(50, -50)
