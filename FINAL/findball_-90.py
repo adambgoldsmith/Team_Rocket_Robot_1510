@@ -12,7 +12,15 @@ timer = Timer()
 def main():
     hub.speaker.beep()
     motor_pair.set_default_speed(20)
+    reorientate()
     Scan()
+
+def reorientate():
+    hub.motion_sensor.reset_yaw_angle()
+    while hub.motion_sensor.get_yaw_angle() >= -90:
+        print(hub.motion_sensor.get_yaw_angle())
+        motor_pair.start_tank(-10, 10)
+    motor_pair.stop()
 
 def Scan():
     hub.motion_sensor.reset_yaw_angle()
@@ -47,5 +55,5 @@ def LiftArm():
 def Finish():
     motor_pair.stop()
     hub.speaker.play_sound("Ha Ha Ha")
-    
+
 main()
