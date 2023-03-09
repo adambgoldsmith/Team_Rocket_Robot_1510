@@ -23,11 +23,10 @@ def sumo():
 
     To avoid the border, the robot detects if it sees black and if it does,
     it reverses.
-    :param:
+
     :precondition: try to stay in green arena and run into objects
     :postcondition: spin around if no objects detected, else run into objects
     while reversing if it sees black
-    :return:
     """
 
     motor_pair.start_tank(50, -50)
