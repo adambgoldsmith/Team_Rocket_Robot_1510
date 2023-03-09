@@ -28,8 +28,8 @@ def follow_line():
 
     A function that makes the robot follow the green track and avoid black border.
 
-    :precondition: line is green and border is black.
-    :postcondition: robot follows the green track and avoids black line.
+    :precondition: line is green and border is black
+    :postcondition: robot follows the green track and avoids black line
     """
     # do zig-zags with the robot until we reach end of the track
     while True:
